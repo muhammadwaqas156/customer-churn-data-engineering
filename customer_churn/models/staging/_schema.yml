@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_customer_churn
+    description: "Cleaned customer churn data transformed from the Bronze layer."
+
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: churn
+        description: "Indicates whether the customer has churned."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Yes', 'No']

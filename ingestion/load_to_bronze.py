@@ -315,8 +315,7 @@ def calculate_file_hash():
 
     return sha256.hexdigest()
 
-# temporary add this funtion 
-def test_failed_transaction(connection):
+
 
     test_batch_id = str(uuid.uuid4())
 
@@ -391,8 +390,7 @@ def test_failed_transaction(connection):
         connection.rollback()
         raise
 
-    return test_batch_id
-        
+    return test_batch_id     
 
 if __name__ == "__main__":
 
@@ -462,21 +460,4 @@ if __name__ == "__main__":
 
         if connection is not None:
             connection.close()
-            logging.info("Database connection closed.")
-            
-            
-if __name__ == "__test__":
-    connection = None
-
-    try:
-        connection = connect_to_database()
-        test_batch_id = test_failed_transaction(connection)
-
-        print("\n========== FAILURE TEST SUMMARY ==========")
-        print(f"Test batch ID: {test_batch_id}")
-        print("Expected status: FAILED")
-        print("==========================================")
-
-    finally:
-        if connection is not None:
-            connection.close()            
+            logging.info("Database connection closed.") 

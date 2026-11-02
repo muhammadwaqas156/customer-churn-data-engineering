@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: bronze
+    schema: bronze
+    description: "Raw customer churn data ingested from the IBM Telco CSV."
+
+    tables:
+      - name: customer_churn_raw
+        description: "Raw customer records with ingestion metadata."
+        columns:
+          - name: customer_id
+            description: "Unique customer identifier."
+          - name: total_charges
+            description: "Total charges as originally received from the CSV."
+          - name: batch_id
+            description: "Identifier for the ingestion batch."
+          - name: ingested_at
+            description: "UTC timestamp when the record was ingested."
